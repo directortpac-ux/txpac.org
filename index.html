@@ -244,6 +244,32 @@ ul{list-style:none}
 .donate-form-wrap iframe{border-radius:var(--radius);min-height:500px}
 .donate-note{text-align:center;margin-top:20px;font-size:.85rem;color:var(--text-lighter);line-height:1.6}
 
+/* ===== FUNDING TRANSPARENCY ===== */
+.transparency{background:var(--white);padding:100px 0}
+.transparency-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.transparency-visual{position:relative}
+.goal-banner{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:var(--radius-lg);padding:40px;color:#fff;text-align:center;margin-bottom:36px}
+.goal-amount{font-family:'Merriweather',serif;font-size:2.8rem;font-weight:900;color:#fff;margin-bottom:4px}
+.goal-label{font-size:1rem;color:rgba(255,255,255,.6)}
+.goal-progress{margin-top:24px}
+.goal-bar-bg{background:rgba(255,255,255,.15);border-radius:50px;height:12px;overflow:hidden}
+.goal-bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--red),#e8445a);width:0%;transition:width 1.5s ease-out}
+.goal-raised{display:flex;justify-content:space-between;margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5)}
+.fund-bars{display:flex;flex-direction:column;gap:20px}
+.fund-item{position:relative}
+.fund-item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.fund-item-label{font-weight:600;font-size:.95rem;color:var(--navy);display:flex;align-items:center;gap:10px}
+.fund-item-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fund-item-icon svg{width:18px;height:18px}
+.fund-item-pct{font-family:'Merriweather',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+.fund-bar-bg{background:var(--gray-bg);border-radius:50px;height:10px;overflow:hidden}
+.fund-bar-fill{height:100%;border-radius:50px;width:0%;transition:width 1.2s ease-out}
+.fund-item-desc{font-size:.82rem;color:var(--text-lighter);margin-top:6px}
+.transparency-trust{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
+.trust-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-pale);padding:8px 16px;border-radius:50px;font-size:.82rem;font-weight:600;color:var(--navy)}
+.trust-badge svg{width:16px;height:16px;fill:var(--blue)}
+@media(max-width:1024px){.transparency-grid{grid-template-columns:1fr}}
+
 /* ===== 13. NEWS ===== */
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .news-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all var(--transition)}
@@ -865,6 +891,95 @@ ul{list-style:none}
   </div>
 </section>
 
+<!-- ===== FUNDING TRANSPARENCY ===== -->
+<section class="transparency" id="transparency">
+  <div class="container">
+    <div class="transparency-grid">
+      <div class="transparency-visual fade-in-left">
+        <div class="goal-banner">
+          <div class="goal-label">Campaign Goal</div>
+          <div class="goal-amount">$5,000</div>
+          <div class="goal-label">Closing the Gap: MIH for Bastrop County</div>
+          <div class="goal-progress">
+            <div class="goal-bar-bg">
+              <div class="goal-bar-fill" id="goalBar" data-width="0"></div>
+            </div>
+            <div class="goal-raised">
+              <span>$0 raised</span>
+              <span>$5,000 goal</span>
+            </div>
+          </div>
+        </div>
+        <div class="transparency-trust">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            501(c)(3) Verified
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            100% Goes to TPAC
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Tax-Deductible
+          </div>
+        </div>
+      </div>
+      <div class="fade-in-right">
+        <span class="section-label">Transparency</span>
+        <h2 class="section-title">Where Your Dollars Go</h2>
+        <p style="color:var(--text-light);margin-bottom:32px;font-size:1.05rem">Every dollar donated to TPAC goes directly toward launching our Mobile Integrated Health pilot program in Bastrop County. Here's how we plan to use your support:</p>
+        <div class="fund-bars">
+          <div class="fund-item">
+            <div class="fund-item-header">
+              <div class="fund-item-label">
+                <div class="fund-item-icon" style="background:rgba(178,34,52,.1)"><svg viewBox="0 0 24 24" fill="var(--red)"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+                MIH Pilot Program
+              </div>
+              <div class="fund-item-pct">35%</div>
+            </div>
+            <div class="fund-bar-bg"><div class="fund-bar-fill" style="background:var(--red)" data-width="35"></div></div>
+            <div class="fund-item-desc">Delivering community-based healthcare directly to patients' homes</div>
+          </div>
+          <div class="fund-item">
+            <div class="fund-item-header">
+              <div class="fund-item-label">
+                <div class="fund-item-icon" style="background:rgba(41,104,166,.1)"><svg viewBox="0 0 24 24" fill="var(--blue)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+                Insurance Coverage
+              </div>
+              <div class="fund-item-pct">25%</div>
+            </div>
+            <div class="fund-bar-bg"><div class="fund-bar-fill" style="background:var(--blue)" data-width="25"></div></div>
+            <div class="fund-item-desc">Auto, malpractice, and liability insurance to operate safely</div>
+          </div>
+          <div class="fund-item">
+            <div class="fund-item-header">
+              <div class="fund-item-label">
+                <div class="fund-item-icon" style="background:rgba(27,42,74,.1)"><svg viewBox="0 0 24 24" fill="var(--navy)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+                Operations &amp; Administration
+              </div>
+              <div class="fund-item-pct">25%</div>
+            </div>
+            <div class="fund-bar-bg"><div class="fund-bar-fill" style="background:var(--navy)" data-width="25"></div></div>
+            <div class="fund-item-desc">Day-to-day operational costs to keep TPAC running</div>
+          </div>
+          <div class="fund-item">
+            <div class="fund-item-header">
+              <div class="fund-item-label">
+                <div class="fund-item-icon" style="background:rgba(41,104,166,.08)"><svg viewBox="0 0 24 24" fill="var(--blue)"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm6 11h-3v3h-2v-3H8v-2h3v-3h2v3h3v2z"/></svg></div>
+                Equipment &amp; Branding
+              </div>
+              <div class="fund-item-pct">15%</div>
+            </div>
+            <div class="fund-bar-bg"><div class="fund-bar-fill" style="background:linear-gradient(90deg,var(--blue),var(--navy))" data-width="15"></div></div>
+            <div class="fund-item-desc">Branded equipment, vehicle markings, uniforms, and supplies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 13. NEWS ===== -->
 <section class="section-padding bg-gray" id="news">
   <div class="container text-center">
@@ -1292,6 +1407,21 @@ ul{list-style:none}
         observeAll();
       });
   }
+
+  // Animate funding bars on scroll
+  var barObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var bars = entry.target.querySelectorAll('[data-width]');
+        bars.forEach(function(bar){
+          setTimeout(function(){ bar.style.width = bar.getAttribute('data-width') + '%'; }, 300);
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.2});
+  var transparencyEl = document.getElementById('transparency');
+  if(transparencyEl) barObserver.observe(transparencyEl);
 
   loadBlog();
   loadEvents();
