@@ -170,13 +170,7 @@ ul{list-style:none}
 /* ===== 7. SERVICE AREA ===== */
 .service-area{background:linear-gradient(135deg,var(--navy),#1a3a6a);color:#fff;padding:100px 0}
 .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.texas-map{position:relative;display:flex;align-items:center;justify-content:center;min-height:400px}
-.texas-map svg{width:100%;max-width:400px;height:auto}
-.map-pin{position:absolute;cursor:pointer;transition:all var(--transition)}
-.map-pin.active .pin-dot{width:20px;height:20px;background:var(--red);border-radius:50%;border:3px solid #fff;box-shadow:0 0 12px rgba(178,34,52,.5)}
-.map-pin.active::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:var(--red);animation:pulse-ring 2s ease-out infinite}
-.map-pin.future .pin-dot{width:14px;height:14px;background:var(--blue);border-radius:50%;opacity:.6;border:2px solid rgba(255,255,255,.4)}
-.pin-label{position:absolute;white-space:nowrap;font-size:.8rem;font-weight:700;color:#fff;background:rgba(178,34,52,.9);padding:3px 10px;border-radius:4px;left:28px;top:50%;transform:translateY(-50%)}
+.texas-map{display:flex;align-items:center;justify-content:center;min-height:400px}
 .area-content h2{font-size:2.2rem;color:#fff;margin-bottom:16px}
 .area-content>p{color:rgba(255,255,255,.7);margin-bottom:32px;font-size:1.05rem}
 .county-list{display:flex;flex-direction:column;gap:12px}
@@ -615,34 +609,7 @@ ul{list-style:none}
   <div class="container">
     <div class="area-grid">
       <div class="texas-map fade-in-left">
-        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px">
-          <!-- Stylized Texas outline -->
-          <path d="M180 60 L280 60 L290 70 L310 70 L320 60 L360 60 L370 70 L380 80 L390 100 L400 130 L405 150 L410 180 L420 200 L430 220 L435 250 L430 280 L420 300 L400 330 L370 360 L340 380 L310 400 L280 420 L250 440 L220 430 L200 410 L180 390 L160 370 L140 340 L130 310 L120 280 L115 250 L110 220 L108 200 L110 180 L115 160 L120 140 L130 120 L140 100 L150 85 L160 72 Z"
-            fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2.5" stroke-linejoin="round"/>
-          <!-- County regions (stylized) -->
-          <rect x="230" y="230" width="70" height="60" rx="4" fill="rgba(178,34,52,.2)" stroke="rgba(178,34,52,.4)" stroke-width="1.5"/>
-          <text x="265" y="265" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="10" font-family="Source Sans 3">Bastrop</text>
-          <rect x="235" y="170" width="60" height="50" rx="4" fill="rgba(41,104,166,.1)" stroke="rgba(41,104,166,.25)" stroke-width="1"/>
-          <text x="265" y="200" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9" font-family="Source Sans 3">Lee</text>
-          <rect x="305" y="225" width="60" height="50" rx="4" fill="rgba(41,104,166,.1)" stroke="rgba(41,104,166,.25)" stroke-width="1"/>
-          <text x="335" y="255" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9" font-family="Source Sans 3">Fayette</text>
-          <rect x="210" y="295" width="60" height="50" rx="4" fill="rgba(41,104,166,.1)" stroke="rgba(41,104,166,.25)" stroke-width="1"/>
-          <text x="240" y="325" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9" font-family="Source Sans 3">Caldwell</text>
-        </svg>
-        <!-- Animated pins -->
-        <div class="map-pin active" style="top:46%;left:52%">
-          <div class="pin-dot"></div>
-          <div class="pin-label">Bastrop County</div>
-        </div>
-        <div class="map-pin future" style="top:35%;left:50%">
-          <div class="pin-dot" style="animation:pulse 3s ease-in-out infinite"></div>
-        </div>
-        <div class="map-pin future" style="top:46%;left:66%">
-          <div class="pin-dot" style="animation:pulse 3s ease-in-out 0.5s infinite"></div>
-        </div>
-        <div class="map-pin future" style="top:60%;left:46%">
-          <div class="pin-dot" style="animation:pulse 3s ease-in-out 1s infinite"></div>
-        </div>
+        <img src="Bastrop-County-Map.jpg" alt="Map of Bastrop County, Texas — TPAC Service Area" style="width:100%;max-width:460px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);border:3px solid rgba(255,255,255,.15)">
       </div>
       <div class="area-content fade-in-right">
         <span class="section-label" style="color:rgba(255,255,255,.5)">Service Area</span>
