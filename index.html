@@ -316,6 +316,16 @@ ul{list-style:none}
 .donor-cta{text-align:center;margin-top:48px;font-size:1.05rem}
 .donor-cta a{font-weight:600;color:var(--blue)}
 
+/* ===== COMMUNITY PARTNERS ===== */
+.partners-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center}
+.partner-card{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);transition:all var(--transition);display:flex;flex-direction:column;align-items:center;text-align:center;min-width:200px}
+.partner-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.partner-card img{max-height:100px;width:auto;margin-bottom:16px;object-fit:contain}
+.partner-card h4{font-size:1.05rem;margin-bottom:4px}
+.partner-card p{font-size:.85rem;color:var(--text-lighter);margin:0}
+.partner-cta{text-align:center;margin-top:40px;font-size:1.05rem}
+.partner-cta a{font-weight:600;color:var(--blue)}
+
 /* ===== 15. CONTACT ===== */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
 .contact-info h2{margin-bottom:16px}
@@ -1054,6 +1064,25 @@ ul{list-style:none}
       </div>
     </div>
     <p class="donor-cta fade-in">Interested in supporting TPAC? <a href="#contact">Get in touch &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY PARTNERS ===== -->
+<section class="section-padding bg-cream" id="community-partners">
+  <div class="container text-center">
+    <span class="section-label fade-in">Working Together</span>
+    <h2 class="section-title fade-in">Community Partners</h2>
+    <p class="section-subtitle mx-auto fade-in">Organizations we partner with to improve healthcare access in rural Central Texas.</p>
+  </div>
+  <div class="container">
+    <div class="partners-grid fade-in">
+      <div class="partner-card">
+        <img src="SCC_Logo.jpg" alt="Smithville Community Clinic">
+        <h4>Smithville Community Clinic</h4>
+        <p>Hope and healing for those without means</p>
+      </div>
+    </div>
+    <p class="partner-cta fade-in">Interested in partnering with TPAC? <a href="#contact">Get in touch &rarr;</a></p>
   </div>
 </section>
 
