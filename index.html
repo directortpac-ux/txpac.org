@@ -63,14 +63,9 @@ ul{list-style:none}
 .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
 
 /* ===== 1. ANNOUNCEMENT BAR ===== */
-.announcement-bar{background:var(--red);color:#fff;padding:8px 24px;font-size:.9rem;font-weight:500;display:flex;align-items:center;justify-content:center;gap:16px}
-.announcement-bar-text{text-align:center}
+.announcement-bar{background:var(--red);color:#fff;text-align:center;padding:10px 24px;font-size:.9rem;font-weight:500}
 .announcement-bar a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .announcement-bar a:hover{color:var(--cream)}
-.announcement-bar-social{display:flex;gap:8px;flex-shrink:0}
-.announcement-bar-social a{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--transition)}
-.announcement-bar-social a:hover{background:rgba(255,255,255,.2);border-color:#fff}
-.announcement-bar-social a svg{width:14px;height:14px;fill:#fff}
 
 /* ===== 2. NAVIGATION ===== */
 .navbar{position:sticky;top:0;z-index:1000;background:var(--navy);padding:0 24px;transition:box-shadow var(--transition)}
@@ -83,6 +78,12 @@ ul{list-style:none}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .nav-cta{background:var(--red)!important;color:#fff!important;padding:10px 22px!important;border-radius:50px!important;font-weight:600!important}
 .nav-cta:hover{background:var(--red-dark)!important}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-social{display:flex;gap:8px;align-items:center}
+.nav-social a{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+.nav-social a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5)}
+.nav-social a svg{width:16px;height:16px;fill:rgba(255,255,255,.6)}
+.nav-social a:hover svg{fill:#fff}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
 .hamburger span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;transition:all var(--transition)}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -377,11 +378,7 @@ ul{list-style:none}
 
 <!-- ===== 1. ANNOUNCEMENT BAR ===== -->
 <div class="announcement-bar">
-  <div class="announcement-bar-text">Now Launching: TPAC's Pilot Mobile Integrated Health Program in Bastrop County &mdash; <a href="https://www.zeffy.com/donation-form/closing-the-gap-mobile-integrated-healthcare-for-bastrop-county" target="_blank" rel="noopener">Support Our Campaign</a></div>
-  <div class="announcement-bar-social">
-    <a href="https://www.facebook.com/profile.php?id=61587044288053" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-    <a href="https://www.instagram.com/txpac25/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
-  </div>
+  Now Launching: TPAC's Pilot Mobile Integrated Health Program in Bastrop County &mdash; <a href="https://www.zeffy.com/donation-form/closing-the-gap-mobile-integrated-healthcare-for-bastrop-county" target="_blank" rel="noopener">Support Our Campaign</a>
 </div>
 
 <!-- ===== 2. NAVIGATION ===== -->
@@ -402,9 +399,15 @@ ul{list-style:none}
       <a href="#contact">Contact</a>
       <a href="https://www.zeffy.com/donation-form/closing-the-gap-mobile-integrated-healthcare-for-bastrop-county" target="_blank" rel="noopener" class="nav-cta">Donate</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.facebook.com/profile.php?id=61587044288053" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a href="https://www.instagram.com/txpac25/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
