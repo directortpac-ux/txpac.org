@@ -789,49 +789,8 @@ ul{list-style:none}
     <p class="section-subtitle mx-auto fade-in">Join us at upcoming community events to learn, connect, and support rural healthcare in Central Texas.</p>
   </div>
   <div class="container">
-    <div class="events-grid">
-      <div class="event-card fade-in">
-        <div class="event-date-banner">
-          <div class="event-tba">TBA</div>
-          <div class="event-year">2026</div>
-        </div>
-        <div class="event-body">
-          <h4>Community CPR Training</h4>
-          <p>Free hands-on CPR and basic first aid training for community members. Learn life-saving skills from certified instructors.</p>
-          <div class="event-meta">
-            <span>Bastrop County, TX</span>
-            <span>Location & Time TBA</span>
-          </div>
-        </div>
-      </div>
-      <div class="event-card fade-in">
-        <div class="event-date-banner">
-          <div class="event-tba">TBA</div>
-          <div class="event-year">2026</div>
-        </div>
-        <div class="event-body">
-          <h4>Rural Health Fair</h4>
-          <p>A community health fair offering free preventive screenings, health education, and connections to local healthcare resources.</p>
-          <div class="event-meta">
-            <span>Bastrop County, TX</span>
-            <span>Location & Time TBA</span>
-          </div>
-        </div>
-      </div>
-      <div class="event-card fade-in">
-        <div class="event-date-banner">
-          <div class="event-tba">TBA</div>
-          <div class="event-year">2026</div>
-        </div>
-        <div class="event-body">
-          <h4>MIH Program Launch Event</h4>
-          <p>Celebrating the official launch of TPAC's Mobile Integrated Health pilot program in Bastrop County.</p>
-          <div class="event-meta">
-            <span>Bastrop County, TX</span>
-            <span>Location & Time TBA</span>
-          </div>
-        </div>
-      </div>
+    <div class="events-grid" id="eventsGrid">
+      <!-- Dynamically loaded from /content/events/ -->
     </div>
   </div>
 </section>
@@ -914,40 +873,8 @@ ul{list-style:none}
     <p class="section-subtitle mx-auto fade-in">Stay up to date with TPAC's progress, programs, and community impact.</p>
   </div>
   <div class="container">
-    <div class="news-grid">
-      <div class="news-card fade-in">
-        <div class="news-thumb thumb-1">
-          <svg viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
-        </div>
-        <div class="news-body">
-          <span class="news-tag tag-milestone">Milestone</span>
-          <h4>TPAC Launches Pilot MIH Program</h4>
-          <p>Texas Public Ambulance Corps officially begins its pilot Mobile Integrated Health program in Bastrop County, bringing community-based healthcare to underserved populations.</p>
-          <span class="news-date">2026</span>
-        </div>
-      </div>
-      <div class="news-card fade-in">
-        <div class="news-thumb thumb-2">
-          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        </div>
-        <div class="news-body">
-          <span class="news-tag tag-campaign">Campaign</span>
-          <h4>Closing the Gap: Our Zeffy Fundraising Campaign</h4>
-          <p>Support TPAC's mission by donating to our "Closing the Gap" campaign — funding Mobile Integrated Healthcare for Bastrop County.</p>
-          <span class="news-date">2026</span>
-        </div>
-      </div>
-      <div class="news-card fade-in">
-        <div class="news-thumb thumb-3">
-          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>
-        </div>
-        <div class="news-body">
-          <span class="news-tag tag-growth">Growth</span>
-          <h4>Roadmap to Full EMS: Our Path Forward</h4>
-          <p>From Mobile Integrated Health to a fully licensed EMS provider — TPAC's phased roadmap for serving rural Central Texas communities.</p>
-          <span class="news-date">2026</span>
-        </div>
-      </div>
+    <div class="news-grid" id="newsGrid">
+      <!-- Dynamically loaded from /content/blog/ -->
     </div>
   </div>
 </section>
@@ -1190,14 +1117,14 @@ ul{list-style:none}
 <script>
 (function(){
   // Sticky navbar shadow
-  const navbar = document.getElementById('navbar');
+  var navbar = document.getElementById('navbar');
   window.addEventListener('scroll', function(){
     navbar.classList.toggle('scrolled', window.scrollY > 10);
   });
 
   // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', function(){
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('open');
@@ -1214,7 +1141,7 @@ ul{list-style:none}
   });
 
   // Scroll-triggered animations
-  const observer = new IntersectionObserver(function(entries){
+  var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
@@ -1223,9 +1150,12 @@ ul{list-style:none}
     });
   }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
 
-  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(function(el){
-    observer.observe(el);
-  });
+  function observeAll(){
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(function(el){
+      observer.observe(el);
+    });
+  }
+  observeAll();
 
   // Contact form placeholder
   document.getElementById('contactForm').addEventListener('submit', function(e){
@@ -1233,6 +1163,138 @@ ul{list-style:none}
     alert('Thank you for your message! TPAC will get back to you soon.');
     this.reset();
   });
+
+  // ===== DYNAMIC CONTENT LOADING =====
+  var REPO = 'directortpac-ux/txpac.org';
+  var BRANCH = 'main';
+  var API = 'https://api.github.com/repos/' + REPO + '/contents/';
+  var RAW = 'https://raw.githubusercontent.com/' + REPO + '/' + BRANCH + '/';
+
+  // Parse YAML front matter from markdown
+  function parseFrontMatter(text){
+    var match = text.match(/^---\n([\s\S]*?)\n---/);
+    if(!match) return {};
+    var data = {};
+    match[1].split('\n').forEach(function(line){
+      var i = line.indexOf(':');
+      if(i > 0){
+        var key = line.slice(0, i).trim();
+        var val = line.slice(i + 1).trim().replace(/^["']|["']$/g, '');
+        data[key] = val;
+      }
+    });
+    return data;
+  }
+
+  // SVG icons for news thumbnails
+  var thumbIcons = {
+    red: '<svg viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>',
+    blue: '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+    navy: '<svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>'
+  };
+
+  var tagClasses = {
+    'Milestone': 'tag-milestone',
+    'Campaign': 'tag-campaign',
+    'Growth': 'tag-growth',
+    'Update': 'tag-growth',
+    'Community': 'tag-campaign'
+  };
+
+  var thumbClasses = { red: 'thumb-1', blue: 'thumb-2', navy: 'thumb-3' };
+
+  // Load blog posts
+  function loadBlog(){
+    var grid = document.getElementById('newsGrid');
+    fetch(API + 'content/blog')
+      .then(function(r){ return r.json(); })
+      .then(function(files){
+        if(!Array.isArray(files)){ throw new Error('not array'); }
+        var mdFiles = files.filter(function(f){ return f.name.endsWith('.md'); });
+        return Promise.all(mdFiles.map(function(f){
+          return fetch(RAW + 'content/blog/' + f.name).then(function(r){ return r.text(); });
+        }));
+      })
+      .then(function(contents){
+        var posts = contents.map(parseFrontMatter).sort(function(a,b){
+          return (b.date || '').localeCompare(a.date || '');
+        });
+        grid.innerHTML = '';
+        posts.forEach(function(p){
+          var thumb = p.thumb || 'blue';
+          var tag = p.tag || 'Update';
+          var year = (p.date || '2026').slice(0,4);
+          var card = document.createElement('div');
+          card.className = 'news-card fade-in';
+          card.innerHTML =
+            '<div class="news-thumb ' + (thumbClasses[thumb]||'thumb-2') + '">' + (thumbIcons[thumb]||thumbIcons.blue) + '</div>' +
+            '<div class="news-body">' +
+              '<span class="news-tag ' + (tagClasses[tag]||'tag-growth') + '">' + tag + '</span>' +
+              '<h4>' + (p.title||'') + '</h4>' +
+              '<p>' + (p.description||'') + '</p>' +
+              '<span class="news-date">' + year + '</span>' +
+            '</div>';
+          grid.appendChild(card);
+        });
+        observeAll();
+      })
+      .catch(function(){
+        // Fallback: show static content if API fails
+        grid.innerHTML =
+          '<div class="news-card fade-in"><div class="news-thumb thumb-1">' + thumbIcons.red + '</div><div class="news-body"><span class="news-tag tag-milestone">Milestone</span><h4>TPAC Launches Pilot MIH Program</h4><p>Texas Public Ambulance Corps officially begins its pilot Mobile Integrated Health program in Bastrop County.</p><span class="news-date">2026</span></div></div>' +
+          '<div class="news-card fade-in"><div class="news-thumb thumb-2">' + thumbIcons.blue + '</div><div class="news-body"><span class="news-tag tag-campaign">Campaign</span><h4>Closing the Gap: Our Zeffy Fundraising Campaign</h4><p>Support TPAC\'s mission by donating to our fundraising campaign on Zeffy.</p><span class="news-date">2026</span></div></div>' +
+          '<div class="news-card fade-in"><div class="news-thumb thumb-3">' + thumbIcons.navy + '</div><div class="news-body"><span class="news-tag tag-growth">Growth</span><h4>Roadmap to Full EMS: Our Path Forward</h4><p>TPAC\'s phased roadmap for serving rural Central Texas communities.</p><span class="news-date">2026</span></div></div>';
+        observeAll();
+      });
+  }
+
+  // Load events
+  function loadEvents(){
+    var grid = document.getElementById('eventsGrid');
+    fetch(API + 'content/events')
+      .then(function(r){ return r.json(); })
+      .then(function(files){
+        if(!Array.isArray(files)){ throw new Error('not array'); }
+        var mdFiles = files.filter(function(f){ return f.name.endsWith('.md'); });
+        return Promise.all(mdFiles.map(function(f){
+          return fetch(RAW + 'content/events/' + f.name).then(function(r){ return r.text(); });
+        }));
+      })
+      .then(function(contents){
+        var events = contents.map(parseFrontMatter);
+        grid.innerHTML = '';
+        events.forEach(function(e){
+          var card = document.createElement('div');
+          card.className = 'event-card fade-in';
+          card.innerHTML =
+            '<div class="event-date-banner">' +
+              '<div class="event-tba">' + (e.event_date||'TBA') + '</div>' +
+              '<div class="event-year">' + (e.year||'2026') + '</div>' +
+            '</div>' +
+            '<div class="event-body">' +
+              '<h4>' + (e.title||'') + '</h4>' +
+              '<p>' + (e.description||'') + '</p>' +
+              '<div class="event-meta">' +
+                '<span>' + (e.location||'Bastrop County, TX') + '</span>' +
+                '<span>' + (e.time||'Time TBA') + '</span>' +
+              '</div>' +
+            '</div>';
+          grid.appendChild(card);
+        });
+        observeAll();
+      })
+      .catch(function(){
+        // Fallback static events
+        grid.innerHTML =
+          '<div class="event-card fade-in"><div class="event-date-banner"><div class="event-tba">TBA</div><div class="event-year">2026</div></div><div class="event-body"><h4>Community CPR Training</h4><p>Free hands-on CPR and basic first aid training for community members.</p><div class="event-meta"><span>Bastrop County, TX</span><span>Time TBA</span></div></div></div>' +
+          '<div class="event-card fade-in"><div class="event-date-banner"><div class="event-tba">TBA</div><div class="event-year">2026</div></div><div class="event-body"><h4>Rural Health Fair</h4><p>Community health fair with free preventive screenings and health education.</p><div class="event-meta"><span>Bastrop County, TX</span><span>Time TBA</span></div></div></div>' +
+          '<div class="event-card fade-in"><div class="event-date-banner"><div class="event-tba">TBA</div><div class="event-year">2026</div></div><div class="event-body"><h4>MIH Program Launch Event</h4><p>Celebrating the launch of TPAC\'s Mobile Integrated Health pilot program.</p><div class="event-meta"><span>Bastrop County, TX</span><span>Time TBA</span></div></div></div>';
+        observeAll();
+      });
+  }
+
+  loadBlog();
+  loadEvents();
 })();
 </script>
 </body>

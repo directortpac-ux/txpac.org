@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: directortpac-ux/txpac.org
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date}})"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Tag", name: "tag", widget: "select", options: ["Milestone", "Campaign", "Growth", "Update", "Community"] }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Thumbnail Color", name: "thumb", widget: "select", options: ["red", "blue", "navy"], default: "blue" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{event_date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "event_date", widget: "string", default: "TBA", hint: "Enter a date like 'March 15' or 'TBA'" }
+      - { label: "Year", name: "year", widget: "string", default: "2026" }
+      - { label: "Location", name: "location", widget: "string", default: "Bastrop County, TX" }
+      - { label: "Time", name: "time", widget: "string", default: "Time TBA" }
+      - { label: "Description", name: "description", widget: "text" }
